@@ -4,6 +4,7 @@ def pascal_triangle(n):
 
 # check if n is less than or equal to 0
 # then return empty matrix
+
     if n <= 0:
         return matrix
 
