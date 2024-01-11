@@ -7,10 +7,10 @@ solutions = []
 """The list of possible solutions to the N queens problem.
 """
 n = 0
-"""The size of the chessboard.
+"""The size of chessboard.
 """
 pos = None
-"""The positions on the chessboard.
+"""The positions on chessboard.
 """
 
 
