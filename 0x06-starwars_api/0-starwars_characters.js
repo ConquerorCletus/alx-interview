@@ -23,7 +23,7 @@ request(url, (error, response, body) => {
     const movieData = JSON.parse(body);
     const castUrls = movieData.characters;
 
-    // Make requests to character URLs to get names
+    // Make requests to character URLs to get names of cast
     castUrls.forEach(characterUrl => {
         request(characterUrl, (error, response, body) => {
             if (error) {
@@ -38,6 +38,6 @@ request(url, (error, response, body) => {
 
             const characterData = JSON.parse(body);
             console.log(characterData.name);
-        });
+i        });
     });
 });
