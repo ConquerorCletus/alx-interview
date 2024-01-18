@@ -9,35 +9,27 @@ if (!movieId) {
 
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
-request(url, (error, response, body) => {
-    if (error) {
-        console.error('Error:', error);
-        process.exit(1);
+function apiRequest (cast, index) {
+    if (cast.length === index) {
+      return;
     }
-
-    if (response.statusCode !== 200) {
-        console.error('Failed to retrieve movie information. Status code:', response.statusCode);
-        process.exit(1);
-    }
-
-    const movieData = JSON.parse(body);
-    const castUrls = movieData.characters;
-
-    // Make requests to character URLs to get names of cast
-    castUrls.forEach(characterUrl => {
-        request(characterUrl, (error, response, body) => {
-            if (error) {
-                console.error('Error:', error);
-                process.exit(1);
-            }
-
-            if (response.statusCode !== 200) {
-                console.error('Failed to retrieve character information. Status code:', response.statusCode);
-                process.exit(1);
-            }
-
-            const characterData = JSON.parse(body);
-            console.log(characterData.name);
-i        });
+  
+    request(cast[index], (error, response, body) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(JSON.parse(body).name);
+        apiRequest(cast, index + 1);
+      }
     });
-});
+  }
+  
+  request(url, (error, response, body) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const cast = JSON.parse(body).characters;
+  
+      apiRequest(cast, 0);
+    }
+  });
