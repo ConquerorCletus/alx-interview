@@ -9,7 +9,7 @@ if (!movieId) {
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
 let people = [];
-const names = [];
+const filmCast = [];
 
 const requestCharacters = async () => {
   await new Promise(resolve => request(url, (err, res, body) => {
