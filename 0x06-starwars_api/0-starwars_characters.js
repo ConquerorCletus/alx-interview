@@ -47,9 +47,9 @@ const getCast = async () => {
 
   for (const i of filmCast) {
     if (i === filmCast[filmCast.length - 1]) {
-      process.stdout.write(n);
+      process.stdout.write(i);
     } else {
-      process.stdout.write(n + '\n');
+      process.stdout.write(i + '\n');
     }
   }
 };
