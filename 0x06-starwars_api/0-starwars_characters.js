@@ -2,11 +2,10 @@
 const request = require('request');
 const movieId = process.argv[2];
 
-if (!movieId) {
-  console.error('Usage: ./0-starwars_characters.js <movieId>');
-  process.exit(1);
-}
-
+// if (!movieId) {
+//   console.error('Usage: ./0-starwars_characters.js <movieId>');
+//   process.exit(1);
+// }
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
 function apiRequest (cast, index) {
