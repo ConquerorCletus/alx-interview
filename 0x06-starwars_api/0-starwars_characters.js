@@ -31,7 +31,7 @@ const requestNames = async () => {
           console.error('Error: ', err, '| StatusCode: ', res.statusCode);
         } else {
           const jsonBody = JSON.parse(body);
-          names.push(jsonBody.name);
+          filmCast.push(jsonBody.name);
           resolve();
         }
       }));
