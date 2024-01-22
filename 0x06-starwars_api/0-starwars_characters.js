@@ -6,7 +6,7 @@ if (!movieId) {
   console.error('Usage: ./0-starwars_characters.js <movieId>');
   process.exit(1);
 }
-const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
+const url = `'https://swapi-api.hbtn.io/api/films/${movieId}/`;
 
 let people = [];
 const filmCast = [];
