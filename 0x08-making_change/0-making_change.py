@@ -13,16 +13,16 @@ def makeChange(coins, total):
     '''
     if total <= 0:
         return 0
-    table = [sys.maxsize for i in range(total + 1)]
+
+    # Initialize the table with sys.maxsize
+    table = [sys.maxsize] * (total + 1)
     table[0] = 0
-    m = len(coins)
+
     for i in range(1, total + 1):
-        for j in range(m):
-            if coins[j] <= i:
-                change = table[i - coins[j]]
+        for coin in coins:
+            if coin <= i:
+                change = table[i - coin]
                 if change != sys.maxsize and change + 1 < table[i]:
                     table[i] = change + 1
 
-    if table[total] == sys.maxsize:
-        return -1
-    return table[total]
+    return table[total] if table[total] != sys.maxsize else -1
